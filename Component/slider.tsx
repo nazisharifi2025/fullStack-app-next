@@ -12,7 +12,7 @@ function SliderBanner() {
     slidesToScroll: 1
   };
   return (
-    <div className=' h-56 my-2 w-6xl mx-auto'>
+    <div className=' h-96 my-2 w-6xl mx-auto'>
         <Slider {...settings}>
             <div className=' w-full h-full'>
                 <Image src="/images/b1.webp" alt='banner1' className=' w-full h-full' height={100} width={1000} />
