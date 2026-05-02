@@ -1,8 +1,11 @@
 import React from 'react'
 
-function ProductPrice() {
+function ProductPrice({price}:{price:string}) {
+    const [integer , floate] = price.split('.');
   return (
-    <div></div>
+    <div>
+        <span className=' text-sm  align-super'>AFN</span>
+    </div>
   )
 }
 
