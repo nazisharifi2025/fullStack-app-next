@@ -1,6 +1,7 @@
 import { Card, CardContent, CardHeader } from '@/components/ui/card'
 import Image from 'next/image'
 import React from 'react'
+import ProductPrice from './productPrice'
 
 function ProductCart({product}: {product:any}) {
 //     const imageUrl =
@@ -17,6 +18,7 @@ function ProductCart({product}: {product:any}) {
             <h1 className="h3-bold">{product.name}</h1>
             <div className=' flex-between px-1'>
                 <h1 className='text-sm'>{product.stock}</h1>
+                <ProductPrice price={product.price} />
             </div>
         </CardContent>
     </Card>
