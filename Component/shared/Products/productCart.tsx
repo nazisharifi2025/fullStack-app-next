@@ -4,16 +4,22 @@ import React from 'react'
 import ProductPrice from './productPrice'
 
 function ProductCart({product}: {product:any}) {
-//     const imageUrl =
-//   product.images?.[0]?.img_url
-//     ? `http://localhost:8000/storage/${product.images[0].img_url}`
-//     : "/no-image.png";
   return (
     <Card>
         <CardHeader>
-            <Image src={product.images?.[0]?.img_url?`http://localhost:8000/storage/${product.images[0].img_url}`: "not found"} className='h-full w-full' alt='productImage' height={200} width={200} unoptimized />
+           <Image
+  src={
+    product.images?.[0]?.img_url
+      ? `http://localhost:8000/storage/${product.images[0].img_url}`
+      : "/no-image.png"
+  }
+  alt="product image"
+  width={200}
+  height={200}
+  unoptimized
+/>
         </CardHeader>
-        <CardContent>
+        <CardContent className=' flex flex-col gap-2'>
                 <h1 className='text-sm'>{product.brand}</h1>
             <h1 className="h3-bold">{product.name}</h1>
             <div className=' flex-between px-1'>
