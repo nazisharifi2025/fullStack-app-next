@@ -2,7 +2,7 @@ import { Button } from "@/components/ui/button"
 import ProductCart from "./productCart"
 import { ArrowRight } from "lucide-react"
 
-async function Productlists({productList, limit , title}: {productList:any ,limit?:number , title?:string}) {
+async function AllProductlists({productList, limit , title}: {productList:any ,limit?:number , title?:string}) {
   
   return (
     <div className='my-16 flex flex-col justify-center gap-4'>
@@ -12,9 +12,14 @@ async function Productlists({productList, limit , title}: {productList:any ,limi
         <ProductCart key={index} product={product} />
         ))}
       </div>
-        <Button className=" w-fit mx-auto rounded-md my-4">See All Products <ArrowRight/ > </Button>
+      <div  className=" w-full flex justify-center items-center gap-4 flex-row">
+      {productList.meta.links.map((x:any)=>(
+            <Button key={x.label} className=" rounded-md" variant={x.active ?  "default" : "outline"} dangerouslySetInnerHTML={{ __html: x.label}} ></Button>
+        ))}
+        </div>
+        
     </div>
   )
 }
 
-export default Productlists
+export default AllProductlists

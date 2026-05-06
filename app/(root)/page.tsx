@@ -7,7 +7,7 @@ export default async function Home() {
  return(
   <div className=" w-full ">
   <SliderBanner />
-  <Productlists productList={productList} title="New Arrivals" />
+  <Productlists productList={productList} limit={4} title="New Arrivals" />
   </div>
  )
 }
