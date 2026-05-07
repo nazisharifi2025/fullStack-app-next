@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button"
 import ProductCart from "./productCart"
 import { ArrowRight } from "lucide-react"
+import Link from "next/link"
 
 async function Productlists({productList, limit , title}: {productList:any ,limit?:number , title?:string}) {
   
@@ -12,7 +13,11 @@ async function Productlists({productList, limit , title}: {productList:any ,limi
         <ProductCart key={index} product={product} />
         ))}
       </div>
-        <Button className=" w-fit mx-auto rounded-md my-4">See All Products <ArrowRight/ > </Button>
+          <Link href='/products' className=" w-fit mx-auto">
+        <Button className="rounded-md my-4">
+          See All Products <ArrowRight/ > 
+        </Button>
+        </Link>
     </div>
   )
 }

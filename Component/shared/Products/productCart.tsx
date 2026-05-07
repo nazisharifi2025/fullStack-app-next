@@ -1,6 +1,5 @@
 import { Card, CardContent, CardHeader } from '@/components/ui/card'
 import Image from 'next/image'
-import React from 'react'
 import ProductPrice from './productPrice'
 
 function ProductCart({product}: {product:any}) {
@@ -8,11 +7,7 @@ function ProductCart({product}: {product:any}) {
     <Card>
         <CardHeader>
            <Image
-  src={
-    product.images?.[0]?.img_url
-      ? `http://localhost:8000/storage/${product.images[0].img_url}`
-      : "/no-image.png"
-  }
+  src={`http://localhost:8000/storage/${product.images[0].img_url}`}
   alt="product image"
   width={200}
   height={200}
