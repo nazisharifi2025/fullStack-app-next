@@ -28,8 +28,8 @@ function AllProductlists({ limit , title}: {limit?:number , title?:string}) {
         }
       </div>
       <div  className=" w-full flex justify-center items-center gap-4 flex-row">
-      {list.meta.links.map((x:any)=>(
-            <Button onClick={()=> setLink(x.url? x.url : `http://localhost:8000/api/product?page=${list.meta.current_page}`)} key={x.label} className=" rounded-md" variant={x.active ?  "default" : "outline"} dangerouslySetInnerHTML={{ __html: x.label}} ></Button>
+      {list.links?.map((x:any)=>(
+            <Button onClick={()=> setLink(x.url? x.url : `http://localhost:8000/api/product?page=${list.current_page}`)} key={x.label} className=" rounded-md" variant={x.active ?  "default" : "outline"} dangerouslySetInnerHTML={{ __html: x.label}} ></Button>
         ))}
         </div>
         
