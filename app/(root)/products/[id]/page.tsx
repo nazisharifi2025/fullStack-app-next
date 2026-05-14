@@ -1,8 +1,11 @@
 import ProductImage from '@/Component/shared/Products/product-image';
 import ProductPrice from '@/Component/shared/Products/productPrice';
+import TextArea from '@/Component/shared/reviews/comment';
+import ReviewList from '@/Component/shared/reviews/review-list';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
+import { Textarea } from '@/components/ui/textarea';
 import { getSingleProduct } from '@/lib/action/product.action';
 import { getReview } from '@/lib/action/review.action';
 
@@ -10,9 +13,10 @@ async function page({params}: {params:Promise<{id:string}>}) {
     const {id } = await params ;
     const product = await getSingleProduct(id);
     const review = await getReview();
-    console.log(review);
-     const reviewResults = review.find((r:any)=> r.product_id === product.id);
-  return (                                                                                                                                                                                
+    const reviewResults = review.data.filter((r:any)=> r.product_id === product.id);
+    console.log(reviewResults);
+  return (           
+    <div className=' w-full'>                                                                                                                                                                     
      <section className=' grid grid-cols-5 py-2 gap-3 '>
       <div className=' col-span-2 '>
         {/* image */}
@@ -58,6 +62,13 @@ async function page({params}: {params:Promise<{id:string}>}) {
         </Card>
       </div>
     </section>
+    <div className=' w-full grid grid-cols-2 space-x-4 gap-7 p-4'>
+        <ReviewList reviews={reviewResults} />
+      <div>
+        <TextArea />
+      </div>
+    </div>
+    </div>
   )
 }
 
