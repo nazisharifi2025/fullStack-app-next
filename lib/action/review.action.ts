@@ -4,11 +4,19 @@ export async function getReview(){
     return response;
 }
 export async function createReview(preves:any , formData:FormData){
-    const data = await fetch("http://localhost:8000/api/reviews" ,{
+  try{
+      const data = await fetch("http://localhost:8000/api/reviews" ,{
         body: formData,
         headers:{
             accept : "application/json",
         },
         method: "POST"
     });
+  }
+  catch(err){
+    return {
+        success: true,
+        message: " somting went wrong",
+    }
+  }
 }
