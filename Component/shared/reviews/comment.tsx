@@ -1,5 +1,6 @@
 "use client"
 import { Button } from '@/components/ui/button'
+import { Input } from '@/components/ui/input'
 import { Textarea } from '@/components/ui/textarea'
 import { Star } from 'lucide-react'
 import React, { useState } from 'react'
@@ -14,6 +15,9 @@ function Comment() {
         ))}
        </div>
         <form className=' w-full flex flex-col gap-3' action="">
+          <Input placeholder='Rating' />
+          <Input placeholder='user_id' />
+          <Input placeholder='product_id' />
         <Textarea placeholder='Write Your Comment...' className=' h-56' />
         <Button className=' rounded-md w-fit px-6 py-5'>Send</Button>
         </form>
