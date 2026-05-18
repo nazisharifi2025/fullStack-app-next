@@ -2,10 +2,15 @@
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Textarea } from '@/components/ui/textarea'
+import { createReview } from '@/lib/action/review.action'
 import { Star } from 'lucide-react'
-import React, { useState } from 'react'
+import React, { useActionState, useState } from 'react'
 
 function Comment() {
+  const [state , action] = useActionState(createReview, {
+    success: false,
+    message: "",
+  })
   return (
     <div className=' flex flex-col gap-3'>
         <h2  className=' text-xl  text-gray-600 font-medium'>Share Your Review about recently purchased product!</h2>
@@ -14,7 +19,7 @@ function Comment() {
           <Star key={index} />
         ))}
        </div>
-        <form className=' w-full flex flex-col gap-3' action="">
+        <form action={action} className=' w-full flex flex-col gap-3' >
           <Input placeholder='Rating' />
           <Input placeholder='user_id' />
           <Input placeholder='product_id' />
