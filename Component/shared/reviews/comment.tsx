@@ -4,7 +4,7 @@ import { Input } from '@/components/ui/input'
 import { Textarea } from '@/components/ui/textarea'
 import { createReview } from '@/lib/action/review.action'
 import { Star } from 'lucide-react'
-import React, { useActionState, useState } from 'react'
+import React, { useActionState} from 'react'
 
 function Comment() {
   const [state , action] = useActionState(createReview, {
@@ -20,11 +20,11 @@ function Comment() {
         ))}
        </div>
         <form action={action} className=' w-full flex flex-col gap-3' >
-          <Input placeholder='Rating' />
-          <Input placeholder='user_id' />
-          <Input placeholder='product_id' />
-        <Textarea placeholder='Write Your Comment...' className=' h-56' />
-        <Button className=' rounded-md w-fit px-6 py-5'>Send</Button>
+          <Input name='rating' placeholder='Rating' />
+          <Input name='user_id' placeholder='user_id' />
+          <Input name='product_id' placeholder='product_id' />
+        <Textarea name='comment' placeholder='Write Your Comment...' className=' h-56' />
+        <Button type='submit' className=' rounded-md w-fit px-6 py-5'>Send</Button>
         </form>
     </div>
   )

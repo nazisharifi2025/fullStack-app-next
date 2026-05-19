@@ -1,3 +1,6 @@
+"use server"
+import { revalidatePath } from "next/cache";
+
 export async function getReview(){
     const data = await fetch("http://localhost:8000/api/reviews");
     const response = await data.json();
@@ -12,6 +15,7 @@ export async function createReview(preves:any , formData:FormData){
         },
         method: "POST"
     });
+    // revalidatePath(`/products/${formData.get('product_id')}`);
     return {
         success: false,
         message: "adedd reviews",
