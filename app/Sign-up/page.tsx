@@ -60,10 +60,10 @@ export default function CardDemo() {
       </CardContent>
       <CardFooter className="flex-col gap-2">
         <Button type="submit" className="w-full">
-          Login
+          Sign Up
         </Button>
         <Button variant="ghost" className="w-full">
-          alredy have acount <Link href="Sign-up">Sign Up</Link>
+          alredy have acount <Link href="Sign-up">Sign In</Link>
         </Button>
       </CardFooter>
     </Card>

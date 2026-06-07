@@ -6,7 +6,7 @@ async function UserButton() {
   return (
     <div className='flex gap-2 items-center '>
          <Button asChild>
-              <Link href="/sign-in">
+              <Link href="/Sign-in">
                 <UserIcon /> Sign In
               </Link>
             </Button>

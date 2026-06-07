@@ -1,3 +1,4 @@
+"use client"
 import { Button } from "@/components/ui/button"
 import {
   Card,
@@ -10,9 +11,15 @@ import {
 } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
+import { Login } from "@/lib/action/auth.action"
 import Link from "next/link"
+import { useActionState } from "react"
 
 export default function CardDemo() {
+  const [state , action] = useActionState(Login, {
+    success: false,
+    message: ""
+  })
   return (
     <div className=" w-full h-screen flex justify-center items-center">
            <Card className="w-full max-w-sm">
@@ -23,13 +30,14 @@ export default function CardDemo() {
         </CardDescription>
       </CardHeader>
       <CardContent>
-        <form>
+        <form action={action}>
           <div className="flex flex-col gap-6">
             <div className="grid gap-2">
               <Label htmlFor="email">Email</Label>
               <Input
                 id="email"
                 type="email"
+                name="name"
                 placeholder="m@example.com"
                 required
               />
@@ -44,19 +52,19 @@ export default function CardDemo() {
                   Forgot your password?
                 </a>
               </div>
-              <Input id="password" type="password" required />
+              <Input id="password" name="password" type="password" required />
             </div>
           </div>
-        </form>
-      </CardContent>
-      <CardFooter className="flex-col gap-2">
+      <CardFooter className="flex-col gap-2 my-4">
         <Button type="submit" className="w-full">
           Login
         </Button>
-        <Button variant="ghost" className="w-full">
+        <Button type="submit" variant="ghost" className="w-full">
           alredy have acount <Link href="Sign-up">Sign Up</Link>
         </Button>
       </CardFooter>
+        </form>
+      </CardContent>
     </Card>
     </div>
   )
