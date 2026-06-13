@@ -16,3 +16,15 @@ export async function Login(prevState: unknown , formData:FormData){
     // qaa.af
 
 }
+
+export async function getUser(token: string){
+    const data = await fetch('http://localhost:8000/api/user' , {
+        headers: {
+            Auhtorization : `Bearer ${token}`,
+            accept : "application/json",
+        }
+    });
+    const response = await data.json();
+    console.log(response);
+    return response;
+}
