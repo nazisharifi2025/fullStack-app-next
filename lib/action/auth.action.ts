@@ -19,10 +19,10 @@ export async function Login(prevState: unknown , formData:FormData){
 
 export async function getUser(token: string){
     const data = await fetch('http://localhost:8000/api/user' , {
-        headers: {
-            Auhtorization : `Bearer ${token}`,
-            accept : "application/json",
-        }
+      headers: {
+    Authorization: `Bearer ${token}`,
+    Accept: "application/json",
+}
     });
     const response = await data.json();
     console.log(response);
