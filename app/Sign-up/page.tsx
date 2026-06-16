@@ -26,11 +26,10 @@ export default function CardDemo() {
         <form>
           <div className="flex flex-col gap-6">
             <div className="grid gap-2">
-              <Label htmlFor="email">Email</Label>
+              <Label htmlFor="name">Name</Label>
               <Input
-                id="email"
-                type="email"
-                placeholder="m@example.com"
+                id="name"
+                type="text"
                 required
               />
             </div>
@@ -54,6 +53,14 @@ export default function CardDemo() {
                 </a>
               </div>
               <Input id="password" type="password" required />
+            </div>
+            <div className="grid gap-2">
+                <Label htmlFor="ConfirmPassword">Confirm Password</Label>
+              <Input id="ConfirmPassword" type="password" required />
+            </div>
+            <div className="grid gap-2">
+                <Label htmlFor="phoneNumber">Phone Number</Label>
+              <Input id="phoneNumber" type="text" required />
             </div>
           </div>
         </form>
