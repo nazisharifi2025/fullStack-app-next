@@ -38,6 +38,7 @@ export default function CardDemo() {
                 id="name"
                 type="text"
                 required
+                name="name"
               />
             </div>
              <div className="grid gap-2">
@@ -45,6 +46,7 @@ export default function CardDemo() {
               <Input
                 id="email"
                 type="email"
+                name="email"
                 placeholder="m@example.com"
                 required
               />
@@ -59,11 +61,11 @@ export default function CardDemo() {
                   Forgot your password?
                 </a>
               </div>
-              <Input id="password" type="password" required />
+              <Input id="password" type="password" name="password" required />
             </div>
             <div className="grid gap-2">
                 <Label htmlFor="ConfirmPassword">Confirm Password</Label>
-              <Input id="ConfirmPassword" type="password" required />
+              <Input id="ConfirmPassword" type="password" name="confirmPassword" required />
               {!data.status && data.message === "not mutched" &&(
                 <div>
                   <span className=" text-sm font-bolde text-red-500">The password not mutched</span>
@@ -72,7 +74,7 @@ export default function CardDemo() {
             </div>
             <div className="grid gap-2">
                 <Label htmlFor="phoneNumber">Phone Number</Label>
-              <Input id="phoneNumber" type="text" required />
+              <Input id="phoneNumber" type="text" name="phoneNumber" required />
             </div>
           </div>
         </form>
