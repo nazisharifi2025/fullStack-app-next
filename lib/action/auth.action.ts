@@ -33,6 +33,12 @@ export async function SignUpForm(prevState: unknown , formData:FormData){
     try{
         const password = formData.get('password');
         const ConfirmPassword = formData.get('confirmPassword');
+        if(password !== ConfirmPassword){
+            return {
+                message: "not mutched",
+                status: false
+            }
+        }
     const data = await fetch('http://localhost:8000/api/auth' , {
         body: formData ,
         headers:{
