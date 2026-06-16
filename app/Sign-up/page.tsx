@@ -1,3 +1,4 @@
+"use client"
 import { Button } from "@/components/ui/button"
 import {
   Card,
@@ -10,9 +11,15 @@ import {
 } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
+import { SignUpForm } from "@/lib/action/auth.action"
 import Link from "next/link"
+import { useActionState } from "react"
 
 export default function CardDemo() {
+  const [data , func] = useActionState(SignUpForm, {
+    message: "" ,
+    status: false
+  })
   return (
     <div className=" w-full h-screen flex justify-center items-center">
            <Card className="w-full max-w-sm">
@@ -23,7 +30,7 @@ export default function CardDemo() {
         </CardDescription>
       </CardHeader>
       <CardContent>
-        <form>
+        <form action={func}>
           <div className="flex flex-col gap-6">
             <div className="grid gap-2">
               <Label htmlFor="name">Name</Label>
@@ -57,6 +64,11 @@ export default function CardDemo() {
             <div className="grid gap-2">
                 <Label htmlFor="ConfirmPassword">Confirm Password</Label>
               <Input id="ConfirmPassword" type="password" required />
+              {!data.status && data.message === "not mutched" &&(
+                <div>
+                  <span className=" text-sm font-bolde text-red-500">The password not mutched</span>
+                </div>
+              )}
             </div>
             <div className="grid gap-2">
                 <Label htmlFor="phoneNumber">Phone Number</Label>
