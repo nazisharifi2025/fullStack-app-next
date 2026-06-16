@@ -31,6 +31,8 @@ export async function getUser(token: string){
 
 export async function SignUpForm(prevState: unknown , formData:FormData){
     try{
+        const password = formData.get('password');
+        const ConfirmPassword = formData.get('confirmPassword');
     const data = await fetch('http://localhost:8000/api/auth' , {
         body: formData ,
         headers:{
