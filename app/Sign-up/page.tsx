@@ -21,13 +21,13 @@ export default function CardDemo() {
     status: false
   })
   return (
-    <div className=" w-full h-screen flex justify-center items-center">
-           <Card className="w-full max-w-sm">
+    <div className=" w-full min-h-screen flex justify-center items-center">
+           <Card className="w-full max-w-md ">
       <CardHeader>
-        <CardTitle>Create an acount</CardTitle>
-        <CardDescription>
+        <CardTitle className="text-2xl font-bolde" >Create an acount</CardTitle>
+        {/* <CardDescription>
           Enter your email below to login to your account
-        </CardDescription>
+        </CardDescription> */}
       </CardHeader>
       <CardContent>
         <form action={func}>
@@ -54,12 +54,12 @@ export default function CardDemo() {
             <div className="grid gap-2">
               <div className="flex items-center">
                 <Label htmlFor="password">Password</Label>
-                <a
+                {/* <a
                   href="#"
                   className="ml-auto inline-block text-sm underline-offset-4 hover:underline"
                 >
                   Forgot your password?
-                </a>
+                </a> */}
               </div>
               <Input id="password" type="password" name="password" required />
             </div>
@@ -77,16 +77,16 @@ export default function CardDemo() {
               <Input id="phoneNumber" type="text" name="phoneNumber" required />
             </div>
           </div>
-        </form>
-      </CardContent>
-      <CardFooter className="flex-col gap-2">
-        <Button type="submit" className="w-full">
+        <Button type="submit" className="w-full my-4">
           Sign Up
         </Button>
-        <Button variant="ghost" className="w-full">
+        </form>
+      </CardContent>
+      {/* <CardFooter className="flex-col gap-2">
+       <Button variant="ghost" className="w-full">
           alredy have acount <Link href="Sign-up">Sign In</Link>
-        </Button>
-      </CardFooter>
+        </Button> 
+      </CardFooter> */}
     </Card>
     </div>
   )
