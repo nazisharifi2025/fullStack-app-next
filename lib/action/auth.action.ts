@@ -37,7 +37,7 @@ export async function SignUpForm(prevState: unknown , formData:FormData){
             return {
                 message: "not mutched",
                 status: false
-            }
+            }      
         }
         else{
     const data = await fetch('http://localhost:8000/api/signUp' , {
