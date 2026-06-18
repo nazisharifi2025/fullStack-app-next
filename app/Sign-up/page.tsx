@@ -74,7 +74,7 @@ export default function CardDemo() {
             </div>
             <div className="grid gap-2">
                 <Label htmlFor="phoneNumber">Phone Number</Label>
-              <Input id="phoneNumber" type="text" name="phoneNumber" required />
+              <Input id="phoneNumber" type="text" name="phone_number" required />
             </div>
           </div>
         <Button type="submit" className="w-full my-4">

@@ -39,7 +39,8 @@ export async function SignUpForm(prevState: unknown , formData:FormData){
                 status: false
             }
         }
-    const data = await fetch('http://localhost:8000/api/auth' , {
+        else{
+    const data = await fetch('http://localhost:8000/api/signUp' , {
         body: formData ,
         headers:{
             Accept: "application/json",
@@ -50,6 +51,7 @@ export async function SignUpForm(prevState: unknown , formData:FormData){
         message: response,
         status: true
     }
+}
     }
     catch(err){
         return{
