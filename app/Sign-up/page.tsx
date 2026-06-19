@@ -22,7 +22,9 @@ export default function CardDemo() {
     message: "" ,
     status: false
   })
-  
+  if(!data.message){
+    
+  }
   return (
     <div className=" w-full min-h-screen flex justify-center items-center">
            <Card className="w-full max-w-md ">
