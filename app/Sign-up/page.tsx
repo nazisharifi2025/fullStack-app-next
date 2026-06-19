@@ -13,13 +13,16 @@ import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { SignUpForm } from "@/lib/action/auth.action"
 import Link from "next/link"
+import { useRouter } from "next/router"
 import { useActionState } from "react"
 
 export default function CardDemo() {
+  const router = useRouter();
   const [data , func] = useActionState(SignUpForm, {
     message: "" ,
     status: false
   })
+  
   return (
     <div className=" w-full min-h-screen flex justify-center items-center">
            <Card className="w-full max-w-md ">
