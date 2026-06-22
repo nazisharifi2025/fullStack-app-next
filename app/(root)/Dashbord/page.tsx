@@ -1,5 +1,5 @@
 "use client"
-import { Card, CardHeader, CardTitle } from '@/components/ui/card'
+import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card'
 import { LayoutDashboardIcon } from 'lucide-react'
 import React, { useState } from 'react'
 
@@ -14,7 +14,16 @@ function page() {
                         <LayoutDashboardIcon size={24} />
                         <span className={`${showText? "block" : "hidden"}`}> Dashboard</span>
                     </CardTitle>
-
+                    <CardContent>
+                        <div className=' flex space-x-2 items-center w-fit'>
+                             <LayoutDashboardIcon size={24} />
+                        <span className={`${showText? "block" : "hidden"}`}> Dashboard</span>
+                        </div>
+                    </CardContent>
+                    <CardDescription></CardDescription>
+                    <CardFooter >
+                        <span className='text-sm'>Dashboard build with shadcn</span>
+                    </CardFooter>
                 </CardHeader>
             </Card>
         </div>
