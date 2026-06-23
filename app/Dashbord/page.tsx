@@ -1,4 +1,5 @@
 "use client";
+import MainSection from "@/Component/shared/dashboard/MainSection";
 import DashboardSidbar from "@/Component/shared/dashboard/sidbar";
 import {
   Card,
@@ -17,10 +18,11 @@ import React, { useState } from "react";
 function page() {
   const [showText, setShowText] = useState(true);
   return (
-    <div className="w-full min-h-screen flex justify-between">
-      <div className="max-w-3xs w-full h-full">
+    <div className="w-full min-h-screen dark:bg-black bg-stone-50 flex gap-1">
+      <div className={`${showText ? "max-w-3xs" : "w-fit"}  max-w-3xs w-full h-full`}>
         <DashboardSidbar showText={showText} />
       </div>
+        <MainSection setShowText={setShowText} showText={showText} />
     </div>
   );
 }
