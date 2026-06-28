@@ -5,7 +5,7 @@ import DashboardTables from './DashboardTables'
 
 function MainSection({setShowText , showText}: {setShowText: any , showText:boolean}) {
   return (
-    <div className=' w-full'>
+    <div className=' w-full flex flex-col'>
         <DashboardHeader setShowText={setShowText} showText={showText} />
         <OverAllReport />
         <DashboardTables/>

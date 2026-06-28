@@ -18,8 +18,8 @@ import React, { useState } from "react";
 function page() {
   const [showText, setShowText] = useState(true);
   return (
-    <div className="w-full min-h-screen dark:bg-black bg-stone-50 flex gap-1">
-      <div className={`${showText ? "max-w-3xs" : "w-fit"}  max-w-3xs w-full h-full`}>
+    <div className="w-full bg-stone-50 dark:bg-black min-h-screen flex justify-start gap-1">
+      <div className={`${showText ? "w-3xs hidden md:block " : "w-fit"}`}>
         <DashboardSidbar showText={showText} />
       </div>
         <MainSection setShowText={setShowText} showText={showText} />

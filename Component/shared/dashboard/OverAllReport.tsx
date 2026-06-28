@@ -1,5 +1,6 @@
 import { ArrowUpRight, CircleDollarSign, ShoppingBasket, Star, User } from 'lucide-react'
 import React from 'react'
+import MonthlyPreviewReport from './MonthlyPreviewReport'
 
 function OverAllReport() {
   return (
@@ -11,12 +12,8 @@ function OverAllReport() {
                 <span className=' text-2xl font-bold'>8000</span>
                 <span className=' flex space-x-2 text-sm items-center text-gray-300'><span className=' text-green-400 flex'><ArrowUpRight size={18}  />45.5% </span> vs Previous month</span>
             </div>
-            <div className=' flex flex-col gap-3 border-r px-2'>
-                <span className=' text-xs text-gray-300 flex space-x-3 items-center gap-1.5'><Star size={15}/>Reviwed Product</span>
-                <span className=' text-gray-400 text-md'>400 Previws monthly</span>
-                <span className=' text-2xl font-bold'>9000</span>
-                <span className=' flex space-x-2 text-sm items-center text-gray-300'><span className=' text-green-400 flex'><ArrowUpRight size={18}  />45.5% </span> vs Previous month</span>
-            </div>
+          {/*  */}
+          <MonthlyPreviewReport/>
             <div className=' flex flex-col gap-3 border-r px-2'>
                 <span className=' text-xs text-gray-300 flex space-x-3 items-center gap-1.5'><User size={15}/> New Customer</span>
                 <span className=' text-gray-400 text-md'>3200 Previws monthly</span>
