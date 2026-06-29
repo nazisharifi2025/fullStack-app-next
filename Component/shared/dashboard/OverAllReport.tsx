@@ -5,7 +5,7 @@ import MonthlyPreviewReport from './MonthlyPreviewReport'
 function OverAllReport() {
   return (
     <div className=' w-full mx-auto p-5'>
-        <div className=' max-w-6xl w-full dark:bg-stone-400/60 grid grid-cols-4 bg-white rounded-md border border-gray-200 p-4'>
+        <div className=' max-w-6xl w-full dark:bg-stone-400/60 grid md:grid-cols-4 grid-cols-1 bg-white rounded-md border border-gray-200 p-4'>
             <div className=' flex flex-col gap-3 border-r px-2'>
                 <span className=' text-xs text-gray-300 flex space-x-3 items-center gap-1.5'><CircleDollarSign size={15}/> Monthly Revenume</span>
                 <span className=' text-gray-400 text-md'>4000 Previws monthly</span>
