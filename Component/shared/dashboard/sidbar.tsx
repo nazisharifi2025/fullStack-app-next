@@ -65,10 +65,6 @@ function DashboardSidbar({showText}: {showText:boolean}) {
                       Reviws
                     </span>
                   </div>
-                  <div className="flex space-x-2 items-center w-fit">
-                    <LayoutDashboardIcon />
-                    <span className={`${showText ? "block" : "hidden"}`}></span>
-                  </div>
                 </div>
                 <ScrollBar orientation="vertical" />
               </ScrollArea>
