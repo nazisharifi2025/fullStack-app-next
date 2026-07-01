@@ -13,3 +13,8 @@ export async function getSingleProduct(id : string){
     const response = await data.json();
     return response;
 }
+export async function fetchAllProduct(url){
+    const data = await fetch(url);
+    const response = await data.json();
+    return response.products;
+}
