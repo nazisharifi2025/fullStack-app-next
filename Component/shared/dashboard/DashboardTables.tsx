@@ -2,11 +2,26 @@ import { Button } from '@/components/ui/button'
 import { DropdownMenu, DropdownMenuContent, DropdownMenuGroup, DropdownMenuItem, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuTrigger,  } from '@/components/ui/dropdown-menu'
 import { Input } from '@/components/ui/input'
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table'
+import { fetchAllProduct } from '@/lib/action/product.action'
 import { MarketOrderIcon } from '@hugeicons/core-free-icons'
 import { CalendarDays, ListOrdered } from 'lucide-react'
-import React from 'react'
+import React, { use, useEffect, useState } from 'react'
 
 function DashboardTables() {
+  const [products , setProducts] = useState<any>(null)
+  const [link , setLink] = useState<any>("http://localhost:8000/api/dashboard/all-product?page=1")
+  useEffect(()=>{
+    async function getProduct(){
+      const data = await fetchAllProduct(link);
+      setProducts(data);      
+    }
+    getProduct()
+  },[link]);
+  if(!products){
+    return(
+      <div> Loding.... </div>
+    )
+  }
   return (
     <div className=' w-full mx-auto p-5'>
         <div className=' p-3 rounded-lg border-gray-300 bg-white'>
@@ -25,41 +40,32 @@ function DashboardTables() {
            <TableHeader className='p-4 bg-gray-50'>
     <TableRow>
       <TableHead className="w-[100px]">#</TableHead>
-      <TableHead>Order</TableHead>
-      <TableHead>Customer</TableHead>
-      <TableHead className="text-right">Status</TableHead>
-      <TableHead className="text-right">Total</TableHead>
-      <TableHead className="text-right">Date</TableHead>
+      <TableHead>name</TableHead>
+      <TableHead>Price</TableHead>
+      <TableHead >Manefacturer Date</TableHead>
+      <TableHead >Expire Date</TableHead>
     </TableRow>
   </TableHeader>
    <TableBody>
-    <TableRow>
-      <TableCell className="font-medium">1</TableCell>
-      <TableCell className=' flex flex-col'>ORD-2024-001 <span className='text-xs text-gray-300'>2 items</span></TableCell>
-      <TableCell>Sarah Johnson </TableCell>
-      <TableCell className="text-right">Delivered</TableCell>
-      <TableCell className="text-right">$2,499.00</TableCell>
-      <TableCell className="text-right">Jan 28, 2024</TableCell>
-    </TableRow>
-    <TableRow>
-      <TableCell className="font-medium">2</TableCell>
-      <TableCell className=' flex flex-col'>OTD-2024-003 <span className='text-xs text-gray-300'>2 items</span></TableCell>
-      <TableCell>Sarah Johnson </TableCell>
-      <TableCell className="text-right">Delivered</TableCell>
-      <TableCell className="text-right">$9,439.00</TableCell>
-      <TableCell className="text-right">Jan 25, 2024</TableCell>
-    </TableRow>
-    <TableRow>
-      <TableCell className="font-medium">3</TableCell>
-      <TableCell className=' flex flex-col'>OTW-2024-003 <span className='text-xs text-gray-300'>2 items</span></TableCell>
-      <TableCell>Sarah Johnson </TableCell>
-      <TableCell className="text-right">Delivered</TableCell>
-      <TableCell className="text-right">$2,435.00</TableCell>
-      <TableCell className="text-right">Jan 24, 2024</TableCell>
-    </TableRow>
+    {products.data.map((x:any)=>{
+      return(
+      <TableRow key={x.id}>
+        <TableCell>{x.id}</TableCell>
+        <TableCell>{x.name}</TableCell>
+        <TableCell>{x.price}</TableCell>
+        <TableCell>{x.man_date}</TableCell>
+        <TableCell>{x.expire_date}</TableCell>
+      </TableRow>
+      )
+    })}
   </TableBody>
         </Table>
          </div>
+       <div className=' w-full flex justify-between items-center p-2'>
+            {products.links?.map((x:any)=>(
+            <Button onClick={()=> setLink(x.url? x.url : `http://localhost:8000/api/product?page=${products.current_page}`)} key={x.label} className=" rounded-md" variant={x.active ?  "default" : "outline"} dangerouslySetInnerHTML={{ __html: x.label}} ></Button>
+        ))}
+       </div>
     </div>
   )
 }

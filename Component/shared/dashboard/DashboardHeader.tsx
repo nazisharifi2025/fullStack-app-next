@@ -17,7 +17,7 @@ function DashboardHeader({setShowText , showText}: {setShowText:any , showText: 
             <PanelRightOpen onClick={()=> setShowText(!showText)}/>
             <span>Ecommerce App</span>
         </div>
-        <div className='md:flex hidden gap-3 w-full '>
+        <div className='md:flex hidden gap-3  '>
             <Input placeholder='Search...' type='search'/>
             <Button variant="outline" className=' relative rounded-md'>
                 <Bell />
@@ -25,9 +25,7 @@ function DashboardHeader({setShowText , showText}: {setShowText:any , showText: 
             </Button>
             <ToggleTheme />
         </div>
-        <div>
             <Menu onClick={()=> setNavOpin(true)} className=" block md:hidden" />
-        </div>
     </div>
     <Separator />
     <div className={` ${navOpin? "block " : "hidden"} absolute top-0 bg-white/50 backdrop-blur-md  left-0 w-full min-h-screen`}>
