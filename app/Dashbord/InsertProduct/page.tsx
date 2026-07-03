@@ -1,4 +1,5 @@
 "use client";
+import MainInsertSection from "@/Component/shared/dashboard/MainInsertSection";
 import MainSection from "@/Component/shared/dashboard/MainSection";
 import DashboardSidbar from "@/Component/shared/dashboard/sidbar";
 import {
@@ -22,6 +23,7 @@ function page() {
       <div className={`${showText ? "w-3xs hidden md:block " : "w-fit"}`}>
         <DashboardSidbar showText={showText} />
       </div>
+      <MainInsertSection showText={showText} setShowText={setShowText} />
     </div>
   );
 }
