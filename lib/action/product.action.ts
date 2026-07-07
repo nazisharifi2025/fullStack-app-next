@@ -19,24 +19,31 @@ export async function fetchAllProduct(url:string){
     return response.allProduct;
 }
 export async function StoreProduct(prevState: unknown , formData:FormData){
+    try{
     const formdata = {
         name: formData.get('product_name'),
         price: formData.get('product_price'),
         brand: formData.get('product_brand'),
         category: formData.get('product_category'),
         stock: formData.get('product_stock'),
+        man_date: formData.get('product_man_date'),
+        expire_date: formData.get('product_expire_date'),
         description: formData.get('product_description'),
     }
     const data = await fetch('http://localhost:8000/api/dashboard/store-product',
         {
+            method: "POST",
             headers:{
                  accept : "application/json",
-                 contentType: "application/json"
+                 "Content-type": "application/json"
             },
+            body: JSON.stringify(formdata),
         }
     );
     const response = await data.json();
-    if(response === 'ok'){
+    console.log(data.status);
+    console.log(response);
+    if(data.ok){
         console.log('data added');
         return {
             data: "data added seccessfully",
@@ -49,5 +56,8 @@ export async function StoreProduct(prevState: unknown , formData:FormData){
             status: false
         }
     }
+}catch(error){
+    console.log(error)
+}
 
 }
