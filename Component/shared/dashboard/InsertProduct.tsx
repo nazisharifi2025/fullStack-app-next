@@ -44,6 +44,10 @@ function InsertProduct() {
             <Input type='text' className=' rounded-md' name='product_category' id='category' placeholder='Product Category' />
         </div>
         <div className='flex flex-col gap-2'>
+            <Label htmlFor='category' >Category</Label>
+            <Input type='file' className=' rounded-md' name='product_category' id='category' placeholder='Product Category' />
+        </div>
+        <div className='flex flex-col gap-2'>
             <Label htmlFor='description' >Description</Label>
             <Textarea className=' rounded-md resize-none w-full h-32' name='product_description' id='description' placeholder='Product description' />
         </div>
