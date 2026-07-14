@@ -29,6 +29,8 @@ export async function StoreProduct(prevState: unknown , formData:FormData){
         man_date: formData.get('product_man_date'),
         expire_date: formData.get('product_expire_date'),
         description: formData.get('product_description'),
+        image1: formData.get('image_url1'),
+        image2: formData.get('image_url2')
     }
     const data = await fetch('http://localhost:8000/api/dashboard/store-product',
         {

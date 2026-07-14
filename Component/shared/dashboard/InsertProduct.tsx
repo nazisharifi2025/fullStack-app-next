@@ -47,7 +47,6 @@ function InsertProduct() {
             <Label htmlFor='images' >Images</Label>
             <Input type='file' className=' rounded-md' name='product_image_url1' id='images' />
             <Input type='file' className=' rounded-md' name='product_image_url2' id='images' />
-            <Input type='file' className=' rounded-md' name='product_image_url2' id='images' />
         </div>
         <div className='flex flex-col gap-2'>
             <Label htmlFor='description' >Description</Label>
