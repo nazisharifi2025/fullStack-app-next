@@ -1,63 +1,124 @@
-"use client"
-import { Button } from '@/components/ui/button'
-import { Input } from '@/components/ui/input'
-import { Label } from '@/components/ui/label'
-import { Textarea } from '@/components/ui/textarea'
-import { StoreProduct } from '@/lib/action/product.action'
-import { useActionState } from 'react'
+"use client";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { Textarea } from "@/components/ui/textarea";
+import { storeProduct } from "@/lib/action/product.action";
+import React, { useActionState } from "react";
 
 function InsertProduct() {
-    const [data , action] = useActionState(StoreProduct,{
-        data : "",
-        status: false
-    })
+  const [data, action] = useActionState(storeProduct, {
+    data: "",
+    status: false,
+  });
+
+  if (data.data) {
+    console.log(data.data);
+  }
   return (
-    <div className=' w-full max-w-6xl items-center p-5 flex justify-center  flex-col'>
-        <h1 className=' text-3xl w-10/12 mx-auto font-bold  my-3'>Insert Product</h1>
-        <form action={action} className='w-10/12 mx-auto grid grid-cols-2 gap-4'>
-        <div className='flex flex-col gap-2'>
-            <Label htmlFor='name' >Name</Label>
-            <Input type='text' className=' rounded-md' name='product_name' id='name' placeholder='Name' />
+    <form action={action} encType={"multipart/form-data"} className=" w-10/12 mx-auto my-4">
+        <h1 className=" text-3xl font-bold text-center py-4">Insert Product</h1>
+      <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4">
+        <div className="flex flex-col gap-2">
+          <Label htmlFor="product_name">Product Name</Label>
+          <Input
+            type="text"
+            id="product_name"
+            placeholder="Product name"
+            name="name"
+          />
         </div>
-        <div className='flex flex-col gap-2'>
-            <Label htmlFor='name' >Price</Label>
-            <Input type='text' className=' rounded-md' name='product_price' id='price' placeholder='Name' />
+        <div className="flex flex-col gap-3">
+          <Label htmlFor="product_price">Product Price</Label>
+          <Input
+            type="number"
+            id="product_price"
+            placeholder="Product price"
+            name="price"
+          />
         </div>
-        <div className='flex flex-col gap-2'>
-            <Label htmlFor='stock' >Stock</Label>
-            <Input type='text' className=' rounded-md' name='product_stock' id='stock' placeholder='stock' />
+        <div className="flex flex-col gap-3">
+          <Label htmlFor="product_stock">Stock</Label>
+          <Input
+            type="number"
+            id="product_stock"
+            placeholder="product stock"
+            name="stock"
+          />
         </div>
-        <div className='flex flex-col gap-2'>
-            <Label htmlFor='brand' >Brand</Label>
-            <Input type='text' className=' rounded-md' name='product_brand' id='brand' placeholder='brand' />
+        <div className="flex flex-col gap-3">
+          <Label htmlFor="product_name">Man Date</Label>
+          <Input
+            type="date"
+            id="product_man_date"
+            placeholder="Product manafacturer date"
+            name="man_date"
+          />
         </div>
-        <div className='flex flex-col gap-2'>
-            <Label htmlFor='expire_date' >Expire Date</Label>
-            <Input type='date' className=' rounded-md' name='product_expire_date' id='expire_date' placeholder='Expire_date' />
+        <div className="flex flex-col gap-3">
+          <Label htmlFor="product_expire_date">Expire Date Name</Label>
+          <Input
+            type="date"
+            id="product_expire_date"
+            placeholder="Product Expire date"
+            name="expire_date"
+          />
         </div>
-        <div className='flex flex-col gap-2'>
-            <Label htmlFor='man_date' >Man Date</Label>
-            <Input type='date' className=' rounded-md' name='product_man_date' id='mane_Date' placeholder='Man Date' />
+        <div className="flex flex-col gap-3">
+          <Label htmlFor="product_brand">Brand</Label>
+          <Input
+            type="text"
+            id="product_brand"
+            placeholder="Product brand/company"
+            name="brand"
+          />
         </div>
-        <div className='flex flex-col gap-2'>
-            <Label htmlFor='category' >Category</Label>
-            <Input type='text' className=' rounded-md' name='product_category' id='category' placeholder='Product Category' />
+        <div className="flex flex-col gap-3">
+          <Label htmlFor="product_category">Product Category</Label>
+          <Input
+            type="text"
+            id="product_category"
+            placeholder="Product Expire date"
+            name="category"
+          />
         </div>
-        <div className='flex flex-col gap-2'>
-            <Label htmlFor='images' >Images</Label>
-            <Input type='file' className=' rounded-md' name='product_image_url1' id='images' />
-            <Input type='file' className=' rounded-md' name='product_image_url2' id='images' />
+
+        <div className="flex flex-col gap-3">
+          <Label htmlFor="product_image1">Product Image 1</Label>
+          <Input
+            type="file"
+            accept="image/*"
+            id="product_image1"
+            name="img_url1"
+          />
         </div>
-        <div className='flex flex-col gap-2'>
-            <Label htmlFor='description' >Description</Label>
-            <Textarea className=' rounded-md resize-none w-full h-32' name='product_description' id='description' placeholder='Product description' />
+        <div className="flex flex-col gap-3">
+          <Label htmlFor="product_image2">Product Image 2</Label>
+          <Input
+            type="file"
+            id="product_image2"
+            accept="image/*"
+            name="img_url2"
+          />
         </div>
-        <div className=' w-full flex justify-center my-4 col-span-2 items-center'>
-            <Button type='submit' className=' rounded-md w-fit  mx-auto'>Add Product</Button>
+
+        <div className="flex flex-col gap-3">
+          <Label htmlFor="product_description">Product Description</Label>
+          <Textarea
+            className="w-full h-32 resize-none"
+            id="product_description"
+            placeholder="Product product Description"
+            name="description"
+          />
         </div>
-        </form>
-    </div>
-  )
+      </div>
+      <div className="w-full flex justify-center  my-4">
+        <Button type="submit" variant="outline" className="px-12">
+          Save
+        </Button>
+      </div>
+    </form>
+  );
 }
 
-export default InsertProduct
+export default InsertProduct;

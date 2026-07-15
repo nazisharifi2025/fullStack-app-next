@@ -6,7 +6,7 @@ import InsertProduct from './InsertProduct'
 
 function MainInsertSection({setShowText , showText}: {setShowText: any , showText:boolean}) {
   return (
-    <div className=' w-full flex flex-col'>
+    <div className=' w-full flex flex-col '>
         <DashboardHeader setShowText={setShowText} showText={showText} />
         <InsertProduct/>
     </div>
