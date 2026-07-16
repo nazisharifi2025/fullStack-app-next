@@ -2,7 +2,7 @@ import React from 'react'
 
 function ReviewsSection() {
   return (
-    <div>ReviewsSection</div>
+    <div className="flex items-center gap-4 text-center ">ReviewsSection</div>
   )
 }
 
