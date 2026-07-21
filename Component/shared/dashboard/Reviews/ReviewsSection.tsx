@@ -14,6 +14,12 @@ function ReviewsSection() {
             <TableHead>Email</TableHead>
           </TableRow>
         </TableHeader>
+        <TableRow>
+          <TableCell>1</TableCell>
+          <TableCell>Ali</TableCell>
+          <TableCell>Mohammadi</TableCell>
+          <TableCell>Ali@gmail.com</TableCell>
+        </TableRow>
       </Table>
       </div>
     </div>
