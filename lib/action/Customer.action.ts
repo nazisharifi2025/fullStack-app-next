@@ -3,3 +3,6 @@ export async function getAllUser ():Promise<any>{
     const response = await data.json();
     return response;
 }
+export async function deleteUser(id string){
+    const data = await fetch(`http://localhost:8000/api/dashboard/all-users/${id}`)
+}
