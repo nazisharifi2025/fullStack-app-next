@@ -1,4 +1,5 @@
 "use client";
+import CustomerMainSection from "@/Component/Customer/CustomerMainSection";
 import MainInsertSection from "@/Component/shared/dashboard/addMainSection";
 import MainSection from "@/Component/shared/dashboard/MainSection";
 import DashboardSidbar from "@/Component/shared/dashboard/sidbar";
@@ -24,6 +25,7 @@ function page() {
         <DashboardSidbar showText={showText} />
       </div>
       {/*  */}
+      <CustomerMainSection showText={showText} setShowText={setShowText} />
     </div>
   );
 }

@@ -17,7 +17,7 @@ function CustomerMainSection({
           <div className="flex w-full flex-col items-center">
             <PackagePlus size={32} />
             <h1 className="text-3xl my-4 font-semibold text-gray-400 dark:text-stone-100">
-              Add New Products
+              All Customer
             </h1>
           </div>
           <AllUsers/>
