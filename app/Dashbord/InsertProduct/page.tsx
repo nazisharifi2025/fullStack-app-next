@@ -1,5 +1,5 @@
 "use client";
-import MainInsertSection from "@/Component/shared/dashboard/MainInsertSection";
+import MainInsertSection from "@/Component/shared/dashboard/addMainSection";
 import MainSection from "@/Component/shared/dashboard/MainSection";
 import DashboardSidbar from "@/Component/shared/dashboard/sidbar";
 import {

@@ -1,4 +1,4 @@
-export async function getAllUser (){
+export async function getAllUser ():Promise<any>{
     const data = await fetch('http://localhost:8000/api/dashboard/all-users');
     const response = await data.json();
     return response;
