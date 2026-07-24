@@ -41,10 +41,10 @@ function AllUsers() {
                         <TableCell>{user.email}</TableCell>
                         <TableCell>{user.role}</TableCell>
                         <TableCell>
-                            {/* <form action={action}  >
+                             <form action={action}  >
                                 <Input type="text" defaultValue={user.id} name="id" className="hidden"/>
-                                <Button variant="destructive" type="submit">Delete</Button>
-                            </form> */}
+                                
+                            
                             <AlertDialog>
                                 <AlertDialogTrigger asChild>
                                     <Button variant='destructive'>Delete</Button>
@@ -56,10 +56,13 @@ function AllUsers() {
                                    </AlertDialogHeader>
                                 <AlertDialogFooter>
                                     <AlertDialogCancel>Cancel</AlertDialogCancel>
-                                    <AlertDialogAction>Continue</AlertDialogAction>
+                                    <AlertDialogAction asChild>
+                                        <Button type="submit">Continue</Button>
+                                    </AlertDialogAction>
                                 </AlertDialogFooter>
                                 </AlertDialogContent>
                             </AlertDialog>
+                            </form>
                         </TableCell>
                         <TableCell>
                             <Button variant="default">Update</Button>
