@@ -1,5 +1,6 @@
 "use client"
 
+import { AlertDialog, AlertDialogAction, AlertDialogCancel, AlertDialogContent, AlertDialogDescription, AlertDialogFooter, AlertDialogHeader, AlertDialogTitle, AlertDialogTrigger } from "@/components/ui/alert-dialog";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
@@ -40,10 +41,25 @@ function AllUsers() {
                         <TableCell>{user.email}</TableCell>
                         <TableCell>{user.role}</TableCell>
                         <TableCell>
-                            <form action={action}  >
+                            {/* <form action={action}  >
                                 <Input type="text" defaultValue={user.id} name="id" className="hidden"/>
                                 <Button variant="destructive" type="submit">Delete</Button>
-                            </form>
+                            </form> */}
+                            <AlertDialog>
+                                <AlertDialogTrigger asChild>
+                                    <Button variant='destructive'>Delete</Button>
+                                </AlertDialogTrigger>
+                                <AlertDialogContent>
+                                   <AlertDialogHeader>
+                                    <AlertDialogTitle>Delete Item</AlertDialogTitle>
+                                    <AlertDialogDescription>Are you sure you want to delete {user.name}</AlertDialogDescription>
+                                   </AlertDialogHeader>
+                                <AlertDialogFooter>
+                                    <AlertDialogCancel>Cancel</AlertDialogCancel>
+                                    <AlertDialogAction>Continue</AlertDialogAction>
+                                </AlertDialogFooter>
+                                </AlertDialogContent>
+                            </AlertDialog>
                         </TableCell>
                         <TableCell>
                             <Button variant="default">Update</Button>
