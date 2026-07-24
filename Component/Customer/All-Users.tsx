@@ -1,12 +1,16 @@
 "use client"
 
 import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
-import { getAllUser } from "@/lib/action/Customer.action"
-import { notFound } from "next/navigation";
-import { useEffect, useState } from "react"
+import { deleteUser, getAllUser } from "@/lib/action/Customer.action"
+import { useActionState, useEffect, useState } from "react"
 
 function AllUsers() {
+    const [data , action] = useActionState(deleteUser , {
+        message: "",
+        state: false
+    })
     const [users , setUsers] = useState<{id:number , name:string , email:string , role:string}[] | null>();
     useEffect(()=>{
         async function getUser(){
@@ -36,7 +40,10 @@ function AllUsers() {
                         <TableCell>{user.email}</TableCell>
                         <TableCell>{user.role}</TableCell>
                         <TableCell>
-                            <Button variant="destructive">delete</Button>
+                            <form action={action}  >
+                                <Input type="text" defaultValue={user.id} name="id" className="hidden"/>
+                                <Button variant="destructive" type="submit">Delete</Button>
+                            </form>
                         </TableCell>
                         <TableCell>
                             <Button variant="default">Update</Button>
