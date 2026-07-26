@@ -58,7 +58,6 @@ function AllUsers() {
                                     <AlertDialogCancel>Cancel</AlertDialogCancel>
                                     <AlertDialogAction asChild>
                                         <Button type="submit">Continue</Button>
-                                        <Button type="submit">Continue</Button>
                                     </AlertDialogAction>
                                 </AlertDialogFooter>
                                 </AlertDialogContent>
