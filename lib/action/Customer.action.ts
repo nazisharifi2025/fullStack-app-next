@@ -23,3 +23,8 @@ export async function deleteUser(prevState: unknown , formData: FormData){
     };
 }
 }
+export async function getCustomer(){
+    const data = await fetch('http://localhost:8000/api/dashboard/all-users');
+    const respons = await data.json();
+    return respons;
+}
