@@ -14,7 +14,9 @@ function UpdateUser() {
           <AlertDialogTitle>Update User</AlertDialogTitle>
           <form action="">
             <Input type='text' placeholder='Update Your User Name' name="name" className=' rounded-md'/>
-            <Input type='text' placeholder='Update Your User Name' name="lastName" className=' rounded-md'/>
+            <Input type='text' placeholder='Update Your Last Name' name="lastName" className=' rounded-md'/>
+            <Input type='text' placeholder='Update Your User Email' name="email" className=' rounded-md'/>
+            <Input type='number' placeholder='Update Your Password' name="password" className=' rounded-md'/>
           </form>
         </AlertDialogContent>
       </AlertDialog>
